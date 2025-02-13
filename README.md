@@ -23,7 +23,7 @@ Se ha diseñado un modelo dimensional que cubre los requisitos solicitados. El o
 - La granularidad se centra en las compras realizadas. Cada transacción de compra es el evento más pequeño que se registra. A partir de ahí se extraen las diferentes métricas y dimensiones.
 - La granularidad de los hechos sera a nivel de Factura. Cada compra realizada por un proveedor tiene su correspondiente detalle (fecha, importe, productos).
 
-4. Dimensiones
+2. Dimensiones
    
    - Dim_Date: fechas asociadas a la compra. Permite análisis por periodo y es esencial para calcular tiempo entre fecha de pedido y recepción.
    
@@ -35,7 +35,7 @@ Se ha diseñado un modelo dimensional que cubre los requisitos solicitados. El o
    
    - Dim_Product: detalles productos comprados.
    
-5. Hechos y Medidas
+3. Hechos y Medidas
    
    - Imprte de la compra: total gastado en cada compra, en euros.
    
@@ -45,7 +45,7 @@ Se ha diseñado un modelo dimensional que cubre los requisitos solicitados. El o
    
   -  Lead Time Teórico: valor constante en función del proveedor. 10 nacionales-20 europeos-45 no europeos.
    
-8. Relaciones entre las tablas
+4. Relaciones entre las tablas
    
 Diseño para permitir consultas y análisis.
 
@@ -61,7 +61,7 @@ Diseño para permitir consultas y análisis.
 
 - Dim_Product:Relacionada con Fact_Purchase_Product que tiene info sobre productos comprados en cada transacción.
 
-11. Conclusiones
+5. Conclusiones
     
    - Granularidad: a nivel compra/factura para analizar cada transacción y comparar con proveedores y productos. Cada compra tiene una fecha asociada.
    
@@ -69,7 +69,7 @@ Diseño para permitir consultas y análisis.
    
    - Medidas: importe de compra y ranking de proveedores basado en cantidad de productos y lead tiempo real.
    
-13. Diagrama.
+6. Diagrama.
     
    !(https://github.com/mburgueno9/prueba_lisdata/blob/main/DIAGRAMA%20DATAMART%20LISDATASOL.png?raw=true)
    
