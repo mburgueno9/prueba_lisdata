@@ -39,4 +39,4 @@ Dim_Product:Relacionada con Fact_Purchase_Product que tiene info sobre productos
    -Granularidad: a nivel compra/factura para analizar cada transacción y comparar con proveedores y productos. Cada compra tiene una fecha asociada.
    -Dimensiones: proveedor, moneda, producto, sección y fecha. Son las áreas solicitadas.
    -Medidas: importe de compra y ranking de proveedores basado en cantidad de productos y lead tiempo real.
-9. Diagrama. DIAGRAMA%20DATAMART%20LISDATASOL.png
+9. Diagrama. [DIAGRAMA%20DATAMART%20LISDATASOL.png] (https://github.com/mburgueno9/prueba_lisdata/blob/main/DIAGRAMA%20DATAMART%20LISDATASOL.png?raw=true)
