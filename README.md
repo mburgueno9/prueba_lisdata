@@ -19,55 +19,55 @@ Esta parte se centra en un problema de modelado e implementación de ETL utiliza
 Se ha diseñado un modelo dimensional que cubre los requisitos solicitados. El objetivo es proporcionar un sistema de BI que permita al responsable de compras tomar decisiones tanto en el análisis financiero de las compras, como en el análisis de proveedores. 
 
 1. Proceso de negocio y granularidad
-2. 
-  La granularidad se centra en las compras realizadas. Cada transacción de compra es el evento más pequeño que se registra. A partir de ahí se extraen las diferentes métricas y dimensiones.
-  La granularidad de los hechos sera a nivel de Factura. Cada compra realizada por un proveedor tiene su correspondiente detalle (fecha, importe, productos).
 
-3. Dimensiones
+- La granularidad se centra en las compras realizadas. Cada transacción de compra es el evento más pequeño que se registra. A partir de ahí se extraen las diferentes métricas y dimensiones.
+- La granularidad de los hechos sera a nivel de Factura. Cada compra realizada por un proveedor tiene su correspondiente detalle (fecha, importe, productos).
+
+4. Dimensiones
    
-   Dim_Date: fechas asociadas a la compra. Permite análisis por periodo y es esencial para calcular tiempo entre fecha de pedido y recepción.
+   - Dim_Date: fechas asociadas a la compra. Permite análisis por periodo y es esencial para calcular tiempo entre fecha de pedido y recepción.
    
-   Dim_Supplier: información sobre proveedores.
+   - Dim_Supplier: información sobre proveedores.
    
-   Dim_Currencies: monedas utilizadas en las compras.
+   - Dim_Currencies: monedas utilizadas en las compras.
    
-   Dim_Section: secciones empresa.
+   - Dim_Section: secciones empresa.
    
-   Dim_Product: detalles productos comprados.
+   - Dim_Product: detalles productos comprados.
    
 5. Hechos y Medidas
-6. 
-   Imprte de la compra: total gastado en cada compra, en euros.
    
-   Número de productos: cantidad productos adquiridos de un proveedor.
+   - Imprte de la compra: total gastado en cada compra, en euros.
    
-   Lead Time Real: tiempo entre la fecha de pedido y la de recepción de los productos.
+   - Número de productos: cantidad productos adquiridos de un proveedor.
    
-   Lead Time Teórico: valor constante en función del proveedor. 10 nacionales-20 europeos-45 no europeos.
+   - Lead Time Real: tiempo entre la fecha de pedido y la de recepción de los productos.
+   
+  -  Lead Time Teórico: valor constante en función del proveedor. 10 nacionales-20 europeos-45 no europeos.
    
 8. Relaciones entre las tablas
-9. 
+   
 Diseño para permitir consultas y análisis.
 
-Fact_purchase: tabla de hechos que se conecta con las dimensiones Dim_Date, Dim_Supplier, Dim_Currencies, Dim_Section y Dim_Product.
+- Fact_purchase: tabla de hechos que se conecta con las dimensiones Dim_Date, Dim_Supplier, Dim_Currencies, Dim_Section y Dim_Product.
 
-Dim_Date: se conecta con Fact_Purchase mediante la fecha de la factura, fecha recepción y fecha pedido.
+- Dim_Date: se conecta con Fact_Purchase mediante la fecha de la factura, fecha recepción y fecha pedido.
 
-Dim_Supplier: se conecta con Fact_Purchase mediante proveedor asociado a cada compra. Se conecta también con Dim_Currency para determinar moneda.
+- Dim_Supplier: se conecta con Fact_Purchase mediante proveedor asociado a cada compra. Se conecta también con Dim_Currency para determinar moneda.
 
-Dim_Currencies: Relacionada con Fact_Purchase para convertir importes a euros.
+- Dim_Currencies: Relacionada con Fact_Purchase para convertir importes a euros.
 
-Dim_Section:Relacionada con Fact_Purchase para categorizar compras según sección.
+- Dim_Section:Relacionada con Fact_Purchase para categorizar compras según sección.
 
-Dim_Product:Relacionada con Fact_Purchase_Product que tiene info sobre productos comprados en cada transacción.
+- Dim_Product:Relacionada con Fact_Purchase_Product que tiene info sobre productos comprados en cada transacción.
 
 11. Conclusiones
     
-   -Granularidad: a nivel compra/factura para analizar cada transacción y comparar con proveedores y productos. Cada compra tiene una fecha asociada.
+   - Granularidad: a nivel compra/factura para analizar cada transacción y comparar con proveedores y productos. Cada compra tiene una fecha asociada.
    
-   -Dimensiones: proveedor, moneda, producto, sección y fecha. Son las áreas solicitadas.
+   - Dimensiones: proveedor, moneda, producto, sección y fecha. Son las áreas solicitadas.
    
-   -Medidas: importe de compra y ranking de proveedores basado en cantidad de productos y lead tiempo real.
+   - Medidas: importe de compra y ranking de proveedores basado en cantidad de productos y lead tiempo real.
    
 13. Diagrama.
     
