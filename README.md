@@ -37,13 +37,13 @@ Se ha diseñado un modelo dimensional que cubre los requisitos solicitados. El o
    
 3. Hechos y Medidas
    
-   - Imprte de la compra: total gastado en cada compra, en euros.
+   - Importe de la compra: total gastado en cada compra, en euros.
    
    - Número de productos: cantidad productos adquiridos de un proveedor.
    
    - Lead Time Real: tiempo entre la fecha de pedido y la de recepción de los productos.
    
-  -  Lead Time Teórico: valor constante en función del proveedor. 10 nacionales-20 europeos-45 no europeos.
+   -  Lead Time Teórico: valor constante en función del proveedor. 10 nacionales-20 europeos-45 no europeos.
    
 4. Relaciones entre las tablas
    
